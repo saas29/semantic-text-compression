@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Semantic Text Compression &amp; Sentiment Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <main class="container">
+    <h1>Semantic Text Compression &amp; Sentiment Analysis</h1>
+
+    <section class="input-card">
+      <label for="input-text">Enter Your Text</label>
+      <textarea id="input-text" rows="8" placeholder="Paste a paragraph or short document here..."></textarea>
+      <button id="run-btn" type="button">Run Compression</button>
+      <p id="error-message" class="error hidden"></p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <h2>Results</h2>
+
+      <div class="metric-cards">
+        <div class="metric-card">
+          <span class="metric-label">Compression Ratio</span>
+          <span id="metric-cr" class="metric-value">-</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Redundancy Reduction</span>
+          <span id="metric-rr" class="metric-value">-</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Semantic Similarity</span>
+          <span id="metric-ss" class="metric-value">-</span>
+        </div>
+      </div>
+
+      <div class="text-panel">
+        <h3>Original Text</h3>
+        <p id="original-text"></p>
+      </div>
+
+      <div class="text-panel">
+        <h3>Compressed Text</h3>
+        <p id="compressed-text"></p>
+      </div>
+
+      <div class="sentiment-panel">
+        <p><strong>Original Sentiment:</strong> <span id="original-sentiment"></span></p>
+        <p><strong>Compressed Sentiment:</strong> <span id="compressed-sentiment"></span></p>
+      </div>
+    </section>
+
+    <div id="loading" class="hidden">Running compression pipeline&hellip;</div>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
